@@ -1,0 +1,25 @@
+<%= form_for :articale, url: articales_path do |f|%>
+    <% if @articale.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@articale.errors.count, "error") %> Prohibited This Articale for being saved:</h2>
+          <ul>
+            <%@articale.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+
+        </div>
+    <% end %>
+    <p>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </p>
+    <p>
+      <%= f.label :text %>
+      <%= f.text_area :text %>
+    </p>
+    <p>
+      <%=f.submit %>
+    </p>
+
+<% end %>

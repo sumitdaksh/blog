@@ -1,0 +1,37 @@
+<h1>Show Details Articale</h1>
+<p>
+  <strong>Title:</strong>
+  <%= @articale.title%>
+</p>
+<p>
+  <strong>Text:</strong>
+  <%= @articale.text %>
+</p>
+<h2>comments</h2>
+<p><% @articale.comments.each do |comment|%></p>
+      <p>
+        <strong>Commenter:</strong>
+        <%= comment.commenter%>
+      </p>
+      <p>
+        <strong>Comment:</strong>
+        <%= comment.body %>
+      </p>
+      <% end %>
+<h2>Add a comment</h2>
+<%= form_for([@articale, @articale.comments.build]) do |f| %>
+    <p>
+      <%= f.label :commenter %>
+      <%= f.text_field :commenter %>
+
+    </p>
+    <p>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
+<%= link_to 'back', articales_path %>
+<%= link_to 'edit', edit_articale_path(@articale) %>

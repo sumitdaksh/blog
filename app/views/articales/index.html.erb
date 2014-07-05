@@ -1,0 +1,21 @@
+<h1>All Data</h1>
+<%= link_to 'My Blog', controller: 'articales' %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+
+  <% @articale.each do |articale|%>
+  <tr>
+    <td><%=articale.title%></td>
+    <td><%=articale.text%></td>
+    <td><%= link_to 'show', articale_path(articale) %></td>
+    <td><%= link_to 'edit', edit_articale_path(articale) %></td>
+    <td><%= link_to 'destroy', articale_path(articale), method: :delete, data: { confirm: 'Are you sure?'} %></td>
+  </tr>
+
+
+<%end%>
+</table>
+<%= link_to 'New Articale', new_articale_path %>
